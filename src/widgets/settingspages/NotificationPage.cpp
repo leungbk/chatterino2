@@ -46,7 +46,6 @@ NotificationPage::NotificationPage()
                 settings.append(this->createCheckBox(
                     "Suppress live notifications on startup",
                     getSettings()->suppressInitialLiveNotification));
-#ifdef Q_OS_WIN
                 settings.append(this->createCheckBox(
                     "Show notification", getSettings()->notificationToast));
                 auto openIn = settings.emplace<QHBoxLayout>().withoutMargin();
@@ -66,7 +65,6 @@ NotificationPage::NotificationPage()
                 }
                 openIn->setContentsMargins(40, 0, 0, 0);
                 openIn->setSizeConstraint(QLayout::SetMaximumSize);
-#endif
                 auto customSound =
                     layout.emplace<QHBoxLayout>().withoutMargin();
                 {

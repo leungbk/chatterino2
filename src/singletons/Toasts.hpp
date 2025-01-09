@@ -16,8 +16,10 @@ enum class ToastReaction {
     DontOpen = 3
 };
 
-class Toasts final
+class Toasts final: public QObject
 {
+    Q_OBJECT
+
 public:
     ~Toasts();
 
@@ -30,12 +32,7 @@ public:
     static bool isEnabled();
 
 private:
-#ifdef Q_OS_WIN
-    void ensureInitialized();
-    void sendWindowsNotification(const QString &channelName,
+    void sendNotification(const QString &channelName,
                                  const QString &channelTitle, Platform p);
-
-    bool initialized_ = false;
-#endif
 };
 }  // namespace chatterino

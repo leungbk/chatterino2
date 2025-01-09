@@ -124,6 +124,12 @@ if (WIN32)
     add_subdirectory(lib/WinToast EXCLUDE_FROM_ALL)
 endif ()
 
+find_package(ECM REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
+include(KDEInstallDirs)
+
+find_package(KF6Notifications REQUIRED)
+
 find_package(Sanitizers QUIET)
 
 # Find boost on the system

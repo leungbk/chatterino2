@@ -122,6 +122,7 @@ void NotificationController::notifyTwitchChannelLive(
     {
         if (Toasts::isEnabled())
         {
+            qCDebug(chatterinoNotification) << "toasts are enabled";
             getApp()->getToasts()->sendChannelNotification(
                 payload.channelName, payload.title, Platform::Twitch);
         }
